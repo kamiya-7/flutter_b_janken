@@ -10,8 +10,6 @@ class GuButtonPressed extends JankenEvent {}
 
 class ChokiButtonPressed extends JankenEvent {}
 
-class JudgeResult extends JankenEvent {}
-
 class JankenBloc extends Bloc<JankenEvent, JankenState> {
   final game = Game();
 
@@ -21,20 +19,22 @@ class JankenBloc extends Bloc<JankenEvent, JankenState> {
         userHand: 'Gu',
         computerHand: game.makeComputerHand(),
       ));
+      emit(state.copyWith(
+          result: game.judgeResult(state.userHand, state.computerHand)));
     });
     on<ChokiButtonPressed>((event, emit) {
       emit(state.copyWith(
         userHand: 'Choki',
         computerHand: game.makeComputerHand(),
       ));
+      emit(state.copyWith(
+          result: game.judgeResult(state.userHand, state.computerHand)));
     });
     on<PaButtonPressed>((event, emit) {
       emit(state.copyWith(
         userHand: 'Pa',
         computerHand: game.makeComputerHand(),
       ));
-    });
-    on<JudgeResult>((event, emit) {
       emit(state.copyWith(
           result: game.judgeResult(state.userHand, state.computerHand)));
     });

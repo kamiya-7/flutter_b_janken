@@ -85,7 +85,6 @@ class Home extends StatelessWidget {
                 child: const Text('Gu'),
                 onPressed: () {
                   context.read<JankenBloc>().add(GuButtonPressed());
-                  context.read<JankenBloc>().add(JudgeResult());
                 }),
           ),
           Padding(
@@ -94,7 +93,6 @@ class Home extends StatelessWidget {
                 child: const Text('Choki'),
                 onPressed: () {
                   context.read<JankenBloc>().add(ChokiButtonPressed());
-                  context.read<JankenBloc>().add(JudgeResult());
                 }),
           ),
           Padding(
@@ -103,7 +101,6 @@ class Home extends StatelessWidget {
                 child: const Text('Pa'),
                 onPressed: () {
                   context.read<JankenBloc>().add(PaButtonPressed());
-                  context.read<JankenBloc>().add(JudgeResult());
                 }),
           ),
         ],
